@@ -15,30 +15,33 @@
     <meta name="theme-color" content="#B30000">
     <meta name="google-site-verification" content="JN-n_jqXa-yd-js59chzUenJ85IEZ85WFrpqLg5t9C0" />
     <meta name="Description" content="This is my first app PWA, in has implemeted an simple Facial Recognition." >
-    <script src="js/tracking.js"></script>
-    <script src="js/face.js"></script>
-    <script src="js/eye.js"></script>
-    <script src="js/mouth.js"></script>
   </head>
-  <body>
+  <body >
     <div class="content" >
             <ul class="nav justify-content-center bg-one">
                 <li class="nav-item">
                     <h5 class="cl-tx1" >Facial Recognition</h5>
                 </li>
             </ul> 
-
-            <video id="myVideo" width="400" height="300" preload autoplay loop muted></video>
+            <p class="text-center canv" >
+                <video id="video" width="320" height="240" preload autoplay loop muted></video>
+                <canvas id="canvas" width="320" height="240" ></canvas>
+            </p>
     </div>
-
+   
     <!-- JavaScript (Opcional) -->
     <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+    <script src="js/tracking-min.js"></script>
+    <script src="js/face-min.js"></script>
     <script src="js/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="js/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="js/app.js"></script>
     <script>
             if ('serviceWorker' in navigator) {
                   window.addEventListener('load', function() {
+                    facialRecognition()
+
                     navigator.serviceWorker.register('sw.js').then(function(registration) {
                       // Registration was successful
                       console.log('ServiceWorker registration successful with scope: ', registration.scope);
@@ -48,21 +51,7 @@
                     });
                   });
             }
-
-             var colors = new tracking.ColorTracker(['magenta', 'cyan', 'yellow']);
-             var objects = new tracking.ObjectTracker(['face', 'eye', 'mouth']);
-
-            colors.on('track', function(event) {
-              if (event.data.length === 0) {
-                // No colors were detected in this frame.
-              } else {
-                event.data.forEach(function(rect) {
-                  console.log(rect.x, rect.y, rect.height, rect.width, rect.color);
-                });
-              }
-            });
-
-            tracking.track('#myVideo', colors);
+           
     </script>
   </body>
 </html>
