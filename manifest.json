@@ -1,7 +1,7 @@
 {
     "name": "Facial Recognition",
     "short_name": "FacialRec",
-    "theme_color": "#F54121",
+    "theme_color": "#B30000",
     "background_color": "#FFF",
     "display": "standalone",
     "start_url": "/",
