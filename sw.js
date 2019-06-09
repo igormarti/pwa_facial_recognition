@@ -7,8 +7,8 @@ var urlsToCache = [
   'js/bootstrap.min.js',
   'js/popper.min.js',
   'js/app.js',
-  'js/tracking-min.js',
-  'js/face-min.js',
+  /*'js/tracking-min.js',
+  'js/face-min.js',*/
 ];
 
 self.addEventListener('install', function(event) {
