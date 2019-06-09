@@ -1,12 +1,12 @@
 var CACHE_NAME = 'my-site-cache-v1';
 var urlsToCache = [
   '/',
-  'index.html',
-  'css/bootstrap.min.css',
-  'css/style.css',
-  'js/manifest.js',
-  'js/bootstrap.min.js',
-  'js/popper.min.js'
+  '/index.html',
+  '/css/bootstrap.min.css',
+  '/css/style.css',
+  '/js/manifest.js',
+  '/js/bootstrap.min.js',
+  '/js/popper.min.js'
 ];
 
 self.addEventListener('install', function(event) {
