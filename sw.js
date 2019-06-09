@@ -1,13 +1,17 @@
-var CACHE_NAME = 'static-v1';
+var CACHE_NAME = 'db';
 
 self.addEventListener('install', function (event) {
   event.waitUntil(
     caches.open(CACHE_NAME).then(function (cache) {
       return cache.addAll([
-        '/',
-        '/index.html',
-        '/css/styles.css',
-        '/js/manifest.json',
+        'index.html',
+        'css/style.css',
+        'css/bootstrap.min.css',
+        'js/manifest.js',
+        'js/jquery-3.3.1.slim.min.js',
+        'js/popper.min.js',
+        'js/bootstrap.min.js',
+        'icons/img1.png'
       ]);
     })
   )
