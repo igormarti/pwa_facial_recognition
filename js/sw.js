@@ -8,7 +8,6 @@ self.addEventListener('install', function (event) {
         'index.html',
         'css/styles.css',
         'manifest.js',
-        'icons/img1.png',
       ]);
     })
   )
