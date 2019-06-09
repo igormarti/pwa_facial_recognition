@@ -15,7 +15,10 @@
     <meta name="theme-color" content="#B30000">
     <meta name="google-site-verification" content="JN-n_jqXa-yd-js59chzUenJ85IEZ85WFrpqLg5t9C0" />
     <meta name="Description" content="This is my first app PWA, in has implemeted an simple Facial Recognition." >
-    
+    <script src="js/tracking.js"></script>
+    <script src="js/face.js"></script>
+    <script src="js/eye.js"></script>
+    <script src="js/mouth.js"></script>
   </head>
   <body>
     <div class="content" >
@@ -24,6 +27,8 @@
                     <h5 class="cl-tx1" >Facial Recognition</h5>
                 </li>
             </ul> 
+
+            <video id="myVideo" width="400" height="300" preload autoplay loop muted></video>
     </div>
 
     <!-- JavaScript (Opcional) -->
@@ -43,6 +48,21 @@
                     });
                   });
             }
+
+             var colors = new tracking.ColorTracker(['magenta', 'cyan', 'yellow']);
+             var objects = new tracking.ObjectTracker(['face', 'eye', 'mouth']);
+
+            colors.on('track', function(event) {
+              if (event.data.length === 0) {
+                // No colors were detected in this frame.
+              } else {
+                event.data.forEach(function(rect) {
+                  console.log(rect.x, rect.y, rect.height, rect.width, rect.color);
+                });
+              }
+            });
+
+            tracking.track('#myVideo', colors);
     </script>
   </body>
 </html>

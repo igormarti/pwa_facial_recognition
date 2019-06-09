@@ -6,6 +6,10 @@ var urlsToCache = [
   'js/manifest.js',
   'js/bootstrap.min.js',
   'js/popper.min.js',
+  'js/tracking.js',
+  'js/eye.js',
+  'js/face.js',
+  'js/mouth.js',
   'https://igormarti.github.io/pwa_facial_recognition/',
   'https://igormarti.github.io'
 ];
