@@ -21,14 +21,17 @@
   <body >
     <div class="content" >
             <ul class="nav justify-content-center bg-one">
-                <li class="nav-item">
+                <li class="nav-item ">
                     <h5 class="cl-tx1" >Facial Recognition</h5>
                 </li>
             </ul> 
-            <p class="text-center canv" >
+            <p class="text-center canv" style="display:none" id="face" >
                 <video id="video" width="320" height="240" preload autoplay loop muted></video>
                 <canvas id="canvas" width="320" height="240" ></canvas>
             </p>
+            <div class="col text-center">
+              <button class="btn btn-primary btn-lg  mt-5" id="btn" >Click me</button>
+            </div>
     </div>
    
     <!-- JavaScript (Opcional) -->
@@ -38,9 +41,9 @@
     <script src="js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="js/app.js"></script>
     <script>
+      
             if ('serviceWorker' in navigator) {
                   window.addEventListener('load', function() {
-                    facialRecognition()
 
                     navigator.serviceWorker.register('sw.js').then(function(registration) {
                       // Registration was successful
@@ -51,6 +54,14 @@
                     });
                   });
             }
+
+            $(document).ready(function(){
+              $('#btn').click(function(){
+                  $('#face').show()
+                  $('#btn').hide()
+                  facialRecognition()
+              })
+            })
            
     </script>
   </body>
