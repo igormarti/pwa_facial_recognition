@@ -6,7 +6,8 @@ var urlsToCache = [
   'js/manifest.js',
   'js/bootstrap.min.js',
   'js/popper.min.js',
-  'https://igormarti.github.io/pwa_facial_recognition/'
+  'https://igormarti.github.io/pwa_facial_recognition/',
+  'https://igormarti.github.io'
 ];
 
 self.addEventListener('install', function(event) {
