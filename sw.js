@@ -5,7 +5,8 @@ var urlsToCache = [
   'css/style.css',
   'js/manifest.js',
   'js/bootstrap.min.js',
-  'js/popper.min.js'
+  'js/popper.min.js',
+  'https://igormarti.github.io/pwa_facial_recognition/'
 ];
 
 self.addEventListener('install', function(event) {
@@ -54,7 +55,7 @@ addEventListener('fetch', function(event) {
             .catch(function(err) {       // fallback mechanism
               return caches.open(CACHE_NAME)
                 .then(function(cache) {
-                  return cache.match('index.html');
+                  return cache.match('https://igormarti.github.io/pwa_facial_recognition/');
                 });
             });
         }
