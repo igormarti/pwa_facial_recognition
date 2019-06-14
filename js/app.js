@@ -9,18 +9,28 @@ function facialRecognition(){
     tracker.setEdgesDensity(0.1);
 
     tracking.track('#video', tracker, { camera: true });
-
+    var identified = false;
     tracker.on('track', function(event) {
-        context.clearRect(0, 0, canvas.width, canvas.height);
+       
+        var total = event.data.map(item => [item.total])
+        console.log(total)
+        console.log(identified)
+        if(total > 0 && identified == false){
+            identified = true;
+            context.clearRect(0, 0, canvas.width, canvas.height);
 
-        event.data.forEach(function(rect) {
-            context.strokeStyle = '#00ff00';
-            context.strokeRect(rect.x, rect.y, rect.width, rect.height);
-            context.lineWidth = 3;
-            context.font = '11px Helvetica';
-            context.fillStyle = "#fff";
-            context.fillText('x: ' + rect.x + 'px', rect.x + rect.width + 5, rect.y + 11);
-            context.fillText('y: ' + rect.y + 'px', rect.x + rect.width + 5, rect.y + 22);
-        });
+            event.data.forEach(function(rect) {
+                context.strokeStyle = '#00ff00';
+                context.strokeRect(rect.x, rect.y, rect.width, rect.height);
+                context.lineWidth = 3;
+                context.font = '11px Helvetica';
+                context.fillStyle = "#fff";
+                context.fillText('x: ' + rect.x + 'px', rect.x + rect.width + 5, rect.y + 11);
+                context.fillText('y: ' + rect.y + 'px', rect.x + rect.width + 5, rect.y + 22);
+            });
+            alert('Seu rosto foi identificado...');
+            location.reload()
+        }
+
     });
 }
